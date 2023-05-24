@@ -16,12 +16,7 @@ namespace MunterServer.Controllers
     public class MunterAppController : ControllerBase
     {
 
-        //private readonly ILogger<MunterAppController> _logger;
-
-        //public MunterAppController(ILogger<MunterAppController> logger)
-        //{
-        //    _logger = logger;
-        //}
+  
 
 
 
@@ -48,7 +43,8 @@ namespace MunterServer.Controllers
                 
                 if (!string.IsNullOrEmpty(searchText))
                 {
-                    //Search in gifs/search or from                    
+                    //Search in gifs or use cache for previous searches
+                    //TODO Add caching clean mechanism based on time/size per requirement
                     if (Functions.cacheDic.ContainsKey(searchText))
                     {
                         response.Status = HttpStatusCode.OK;
